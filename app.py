@@ -10,12 +10,24 @@ from risk_calc import calculate_risk
 from flask_cors import CORS
 app = Flask(__name__)
 CORS(app)
-
 import pathlib
 
+# Initialize the Flask application
+app = Flask(__name__)
+# Enable Cross-Origin Resource Sharing (CORS) for the app
+CORS(app)
 
 @app.route('/pdf/<path:filename>/', methods=['GET', 'POST'])
 def getrisk(filename):
+    """
+    Serves a GeoJSON file containing risk scores for a given project.
+
+    Args:
+        filename (str): The name of the file to serve.
+
+    Returns:
+        A GeoJSON file as a download.
+    """
     project_id = request.args.get('project_id', "1")
     project_name = request.args.get('project_name', "1")
     dirdata = 'uploads/'+ project_id +'/riskscore/output'
@@ -24,6 +36,14 @@ def getrisk(filename):
 
 @app.route('/upload', methods=['POST'])
 def upload_file():
+    """
+    Handles the upload of files for a specific project.
+    
+    The files are saved in a directory named after the project ID.
+    
+    Returns:
+        A success message string.
+    """
     uploaded_files = request.files.getlist("file[]")
     
     project_id = request.form['pid']
@@ -46,6 +66,14 @@ def upload_file():
 
 @app.route('/process', methods=['POST'])
 def process():
+    """
+    Processes the uploaded files for a project.
+    
+    Calls the `process_file` function with the project ID.
+    
+    Returns:
+        A success message string.
+    """
    
     project_id = request.json['pid']
     projection = request.json['projection']
