@@ -1,10 +1,10 @@
-# Resibre Repository Overview
+# Libre Repository Overview
 
-Resilience AI Solution Private Limited (RAISPL) is launching Resibre platform for aiding better Disaster Risk Management across the globe. 
+Resilience AI Solution Private Limited (RAISPL) is launching Libre version of Resilience360TM platform for aiding better Disaster Risk Management across the globe. 
 
-This repository provides an end‑to‑end pipeline for generating physical asset risk assets against different climate events. It offers a workflow via a simple Flask API so that end users can upload source data and retrieve results. 
+This repository provides an end‑to‑end pipeline for generating physical asset risk assets against different climate events. It offers a workflow via a simple API so that end users can upload source data and retrieve results. 
 
-The project has been built for creating a first version of a Disaster Management Plan (DMP).  It stitches together computer‑vision models and geospatial Artificial Intelligence tools to automate the following steps:
+The project has been built for creating a first steps of a Disaster Management Plan (DMP).  It stitches together computer‑vision models and geospatial Artificial Intelligence tools to automate the following steps:
 
 1. **Tile Generation** – Large TIFF images are split into fixed‑size tiles (512×512 pixels) so that they can be processed efficiently.
 2. **Building Footprint Extraction** – A UNet segmentation model is used to detect building outlines within each tile, generating a GeoJSON of footprints.
